@@ -5,6 +5,7 @@ library(shinydashboard)
 library(readxl)
 library(tidyverse)
 library(DT)
+library(shinythemes)
 source("R_functions.R")
 source("R_uiLayout.R")
 
@@ -35,14 +36,15 @@ t_leerdoelen <- bind_rows(t_fys,t_che,t_bio,t_nwe)
 #####################################################################################
 # User interface
 ui <- fluidPage(
+    theme = shinytheme("yeti"),
     title = "Overzicht leerlingen klassenraden SJB - Mevr. J. Robijns",
-    
     
     navbarPage(
         id = "mainnavbarpage",
         title = "Leerlingenoverzicht klassenraden Juni 2020",
         collapsible = TRUE,
         fluid = TRUE,
+        footer = "(c)-2020 Dieter Baets, www.github.com/dbaets",
         tabPanel("Leerling selectie",page_selection, value = "page_selection"),
         tabPanel("Samenvatting", page_summary, value = "page_summary"),
         tabPanel("overzicht", page_overzicht, value = "page_overzicht")
@@ -52,7 +54,7 @@ ui <- fluidPage(
     
 
 
-
+# server side
 server <- function(input, output) {
     
     t_selected <- reactive({
