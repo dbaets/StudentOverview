@@ -225,19 +225,3 @@ server <- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)
 
-
-
-
-
-
-
-# sel_rows1 <- c(5)
-# vis <-ggplot()+
-#     geom_hline(yintercept=0.5, linetype="dashed", color = "red") +
-#     geom_vline(xintercept = 50, linetype = "dashed", color = "red") +
-#     geom_point(t_output,mapping = aes(x = kerst,y = LPD_tot))+
-#     geom_point(t_output[sel_rows1,], mapping = aes(x = kerst,y = LPD_tot),color = "red", cex = 2) +
-#     ylim(0,1) +
-#     xlim(0,100) +
-#     ggtitle("fysica") +
-#     theme_bw()
